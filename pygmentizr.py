@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired
 
 import pygment_utils
 
-app = Flask(__name__, template_folder="")
+app = Flask(__name__)
 app.config.from_object('config')
 
 #------------------------------------------------------------------------------
