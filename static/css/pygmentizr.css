@@ -1,0 +1,30 @@
+body {
+  font-size: 1.6em;
+}
+
+pre {
+  font-size: 0.9em;
+}
+
+textarea {
+  width: 100%;
+  font-family: Menlo, Monaco, monospace;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+/*
+Without this style, the "Reset" and "Apply Pygments" buttons were touching.
+There's probably a way to do this with button groups, but I couldn't work it
+out.
+*/
+.pull-right {
+  margin-left: 5px;
+}
+
+/*
+Needed to "fix" the link in the "Reset" button. Again, I suspect there's a way
+*/
+.btn a {
+  color: #fff;
+}

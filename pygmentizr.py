@@ -24,13 +24,12 @@ def index():
     form = SnippetForm()
 
     if form.validate_on_submit():
-        print "Going through!"
-        html_output = pygment_utils.render_code("hello", "Python")
+        html_output = pygment_utils.render_code(form.code.data,
+                                                form.language.data,
+                                                form.inline.data)
         return render_template("index.html",
                                form=form,
                                html_output=html_output)
-    else:
-        print "Form not validating"
 
     return render_template("index.html",
                            form=form)
