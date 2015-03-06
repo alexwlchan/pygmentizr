@@ -32,6 +32,14 @@
         padding: 5px;
         margin-top: 5px;
       }
+
+      .pull-right {
+        margin-left: 5px;
+      }
+
+      .btn a {
+        color: #fff;
+      }
     </style>
   </head>
 
@@ -44,34 +52,41 @@
       </div>
 
       <div class="form-group">
-        <form action="" method="post" name="login">
+        <form action="" method="post" name="login" id="pygmentsForm">
           {{ form.hidden_tag() }}
           <p>{{ form.code(rows="6", placeholder="Enter your code here", class="form-control") }}</p>
 
           <div class="row">
             <div class="col-md-3 col-xs-12"><p>{{ form.language(class="selectpicker") }}</p></div>
             <div class="col-md-3 col-xs-12" style="padding: 5px; padding-left: 20px;"><p>{{ form.inline() }} Apply inline styles</p></div>
-            <div class="col-md-6 col-xs-12"><p><button type="submit" class="btn btn-primary pull-right">Apply Pygments</button></p></div>
+            <div class="col-md-6 col-xs-12"><p>
+              <button type="submit" class="btn btn-primary pull-right">Apply Pygments</button>
+              <button type="reset" class="btn btn-danger pull-right"><a href="/">Reset</a></button>
+            </p></div>
           </div>
 
         </form>
       </div>
+
+      {% if html_output %}
 
       <hr>
 
       <p>This is your HTML:</p>
 
       <textarea rows="6">
-print("Hello world");
+{{ html_output }}
       </textarea>
 
       <p style="margin-top: 10px; margin-bottom: 15px;">and here's a preview:</p>
 
       <div class="well">
-        print("Hello world");
+        {{ html_output | safe }}
       </div>
 
     </div>
+
+    {% endif %}
 
     <!-- Activate the selectpicker class used for the language dropdown -->
     <script>

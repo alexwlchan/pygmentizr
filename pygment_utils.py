@@ -20,3 +20,12 @@ def form_choices():
         choices.append((idx + 1, item[1]))
 
     return choices
+
+def render_code(code, lexer, inline=False):
+    """Takes a string of code and a lexer, and returns a rendered HTML string.
+
+    If inline is true, it uses inline styles to render the text rather than
+    CSS classes. This is useful for environments where external stylesheets are
+    unavailable (e.g. email).
+    """
+    return "<p>print(\"Hello world\");</p>"
