@@ -1,10 +1,6 @@
-body {
-  font-size: 1.6em;
-}
-
-pre {
-  font-size: 0.9em;
-}
+body { font-size: 1.6em; }
+pre { font-size: 0.9em; }
+footer { font-size: 0.75em; margin-top: 10em; }
 
 textarea {
   width: 100%;
@@ -18,13 +14,10 @@ Without this style, the "Reset" and "Apply Pygments" buttons were touching.
 There's probably a way to do this with button groups, but I couldn't work it
 out.
 */
-.pull-right {
-  margin-left: 5px;
-}
+.pull-right { margin-left: 5px; }
 
 /*
-Needed to "fix" the link in the "Reset" button. Again, I suspect there's a way
+Needed to "fix" the link in the "Reset" button.
 */
-.btn a {
-  color: #fff;
-}
+.btn a { color: #fff; }
+.btn a:hover { text-decoration: none; }

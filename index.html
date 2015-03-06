@@ -33,6 +33,13 @@
         <h1>Pygmentizr</h1>
       </div>
 
+      <p>
+        Pygmentizr is an app for highlighting code using the <a href="http://pygments.org/">Pygments library</a>.
+        You can enter some code below, select the language, and it gives you the rendered HTML suitable to drop into an email, forum post or web page.
+      </p>
+
+      <hr>
+
       <div class="form-group">
         <form action="" method="post" name="login" id="pygmentsForm">
           {{ form.hidden_tag() }}
@@ -40,7 +47,14 @@
 
           <div class="row">
             <div class="col-md-3 col-xs-12"><p>{{ form.language(class="selectpicker") }}</p></div>
-            <div class="col-md-3 col-xs-12" style="padding: 5px; padding-left: 20px;"><p>{{ form.inline() }} Apply inline styles</p></div>
+            <div class="col-md-3 col-xs-12" style="padding: 5px; padding-left: 20px;"><p>
+              <span style="margin-top: 5px;">{{ form.inline() }} Apply inline styles</span>
+              <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom"
+                      style="margin-left: 5px; margin-bottom: 2px; padding: 2px 7px"
+                      data-content="If you check this option, then Pygmentizr will use inline CSS styles rather than CSS classes. This is useful when you can't use external stylesheets (e.g. in an email).">
+                ?
+              </button>
+              </p></div>
             <div class="col-md-6 col-xs-12"><p>
               <button type="submit" class="btn btn-primary pull-right">Apply Pygments</button>
               <button type="reset" class="btn btn-danger pull-right"><a href="/">Reset</a></button>
@@ -51,26 +65,33 @@
       </div>
 
       {% if html_output %}
-
       <hr>
-
-      <p>This is your HTML:</p>
-
-      <textarea rows="6">
+      <p style="margin-bottom: 15px;">This is your HTML:</p>
+      <textarea rows="6" class="form-control">
 {{ html_output }}
       </textarea>
-
-      <p style="margin-top: 10px; margin-bottom: 15px;">and here's a preview:</p>
-
+      <p style="margin-top: 15px; margin-bottom: 15px;">and here's a preview:</p>
       {{ html_output | safe }}
+      {% endif %}
+
+
+
+      <footer>
+        <hr>
+        <p>
+          Originally written by <a href="http://www.alexwlchan.net">Alex Chan</a>.
+          Code on <a href="https://github.com/alexwlchan/pygmentizr">on GitHub</a>.
+        </p>
+      </footer>
 
     </div>
-
-    {% endif %}
 
     <!-- Activate the selectpicker class used for the language dropdown -->
     <script>
       $('.selectpicker').selectpicker();
+      $(function () {
+        $('[data-toggle="popover"]').popover()
+      })
     </script>
 
   </body>
