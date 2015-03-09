@@ -44,5 +44,11 @@ python pygmentizr.py
 
 This starts the Flask instance which runs Pygmentizr. Point a web browser at <http://localhost:5000> to use the app.
 
+## Acknowledgements
+
+The favicon is the [fa-code icon][3] from the [Font Awesome][4] toolkit.
+
 [1]: http://pygments.org
 [2]: http://www.alexwlchan.net/2015/03/pygmentizr
+[3]: http://fortawesome.github.io/Font-Awesome/icon/code/
+[4]: http://fortawesome.github.io/Font-Awesome/

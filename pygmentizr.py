@@ -30,7 +30,7 @@ PYGMENTS_STYLE = 'default'
 #------------------------------------------------------------------------------
 # Set up the Flask app
 #------------------------------------------------------------------------------
-app = Flask(__name__, template_folder='', static_url_path='', static_folder='')
+app = Flask(__name__, template_folder='')
 
 app.config['WTF_CSRF_ENABLED'] = True
 app.config['SECRET_KEY'] = 'how-not-to-be-seen'
