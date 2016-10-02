@@ -66,6 +66,12 @@
 
     <!-- If #metacom is in the URL, auto-select the "For Metacom" dropdown -->
     <script>
+      var url = window.location.href;
+      if (url.indexOf('#metacom') !== -1) {
+        console.log("metacom");
+        var stylePicker = document.getElementById('stylePicker');
+        stylePicker.getElementsByTagName('select')[0].selectedIndex = 2;
+      }
     </script>
 
   </body>
