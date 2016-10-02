@@ -9,7 +9,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link href="http://silviomoreto.github.io/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -21,7 +21,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <!-- The bootstrap-select JS is used for the "?" help on "Apply inline styles" -->
-    <script src="http://silviomoreto.github.io/bootstrap-select/bootstrap-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
 
     <link href="{{ url_for('static', filename='pygmentizr.css' )}}" rel="stylesheet">
     <style>{{ css }}</style>
@@ -46,31 +46,28 @@
           {{ form.hidden_tag() }}
           <p>{{ form.code(rows="6", placeholder="Enter your code here", class="form-control") }}</p>
           <div class="row">
-            <div class="col-md-3 col-xs-6"><p>{{ form.language(class="selectpicker") }}</p></div>
-            <div class="col-md-3 col-xs-6" style="padding: 5px; padding-left: 20px;"><p>
-              <span style="margin-top: 5px;">{{ form.inline() }} Apply inline styles</span>
-              <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom"
-                      style="margin-left: 5px; margin-bottom: 2px; padding: 2px 7px"
-                      data-content="If you check this option, then Pygmentizr will use inline CSS styles rather than CSS classes. This is useful when you can't use external stylesheets (e.g. in an email).">
-                ?
-              </button>
-              </p></div>
-            <div class="col-md-6 col-xs-12"><p>
-              <button type="submit" class="btn btn-primary pull-right">Apply Pygments</button>
+            <div class="col-md-3 col-sm-4 col-xs-12" style="padding-right: 20px;">
+              <p>{{ form.language(class="selectpicker") }}</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-12" style="padding-right: 20px;">
+              <p>{{ form.style(class="selectpicker") }}</p>
+            </div>
+            <div class="col-md-3 col-xs-12" style="float: right;"><p>
+              <button type="submit" class="btn btn-primary pull-right">Pygmentize!</button>
               <button type="reset" class="btn btn-danger pull-right"><a href="/">Reset</a></button>
             </p></div>
           </div>
         </form>
       </div>
 
-      {% if html_output %}
+      {% if html_code %}
       <hr>
       <p style="margin-bottom: 15px;">This is your HTML:</p>
       <textarea rows="6" class="form-control">
-{{ html_output }}
+{{ html_code }}
       </textarea>
       <p style="margin-top: 15px; margin-bottom: 15px;">and here's a preview:</p>
-      {{ html_output | safe }}
+      {{ html_to_display | safe }}
       {% endif %}
 
       <footer>
