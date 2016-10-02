@@ -27,6 +27,9 @@ def metacom_code(hilite_str):
     closing_pre = '</pre>'
     hilite_str = hilite_str[len(opening_pre):-len(closing_pre)-1].strip()
 
+    # Turn off that horrific green coloring from Jive.
+    opening_pre = '<pre style="line-height: 125%; color: #3d3d3d;">'
+
     # Go through and add <code> tags to each line
     hilite_str = '<br/>\n'.join(
         '<code>%s</code>' % line if line.strip() else ''
