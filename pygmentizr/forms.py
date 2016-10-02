@@ -14,7 +14,7 @@ class SnippetForm(Form):
     language = SelectField(
         'language',
         validators=[DataRequired()],
-        choices=app.config['SELECTED_LEXERS'],
+        choices=[(k, k) for k in app.config['SELECTED_LEXERS']],
     )
     code = TextAreaField('code_snippet', validators=[DataRequired()])
     inline = BooleanField()

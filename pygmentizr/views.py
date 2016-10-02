@@ -4,7 +4,7 @@ from flask import render_template
 from pygments.formatters import HtmlFormatter
 
 from pygmentizr import app, forms
-from pygmentizr.pygmentizr import render_code
+from pygmentizr.renderer import RenderOptions, render_code
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -12,10 +12,19 @@ def index():
     form = forms.SnippetForm()
 
     if form.validate_on_submit():
+
+        options = RenderOptions(
+            inline=form.inline.data
+        )
+        try:
+            lexer = app.config['SELECTED_LEXERS'][form.language.data]
+        except KeyError:
+            raise ValueError('Unrecognised language %s' % form.language.data)
+
         html_output = render_code(
-            form.code.data,
-            form.language.data,
-            form.inline.data
+            code_str=form.code.data,
+            lexer=lexer,
+            options=options,
         )
 
         # Get the CSS used by this style to include on the page
