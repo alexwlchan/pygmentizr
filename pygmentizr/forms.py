@@ -5,6 +5,7 @@ from wtforms import SelectField, TextAreaField, BooleanField
 from wtforms.validators import DataRequired
 
 from pygmentizr import app
+from pygmentizr.renderer import STYLE_OPTIONS
 
 
 class SnippetForm(Form):
@@ -17,4 +18,9 @@ class SnippetForm(Form):
         choices=[(k, k) for k in app.config['SELECTED_LEXERS']],
     )
     code = TextAreaField('code_snippet', validators=[DataRequired()])
-    inline = BooleanField()
+    style = SelectField(
+        'style',
+        validators=[DataRequired()],
+        choices=[(k, k) for k in STYLE_OPTIONS]
+    )
+

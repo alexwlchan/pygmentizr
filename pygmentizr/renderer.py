@@ -8,21 +8,26 @@ from pygments.formatters import HtmlFormatter
 from pygmentizr import app
 
 
-RenderOptions = collections.namedtuple('RenderOptions', ['inline'])
+STYLE_OPTIONS = [
+    'Use CSS classes',
+    'Apply inline CSS styles',
+    'For Metacom',
+]
 
 
-def lexer_name_to_lexer(lexer_name):
-    """
-    Given the name of a lexer
-    """
-
-
-def render_code(code_str, lexer, options=None):
+def render_code(code_str, lexer, style):
     """
     Takes a string of code and a lexer, and returns a rendered HTML string.
     """
+    if style in ('Apply inline CSS styles', 'For Metacom'):
+        noclasses = True
+    else:
+        noclasses = False
+
     formatter = HtmlFormatter(
-        noclasses=options.inline,
+        noclasses=noclasses,
         style=app.config['PYGMENTS_STYLE']
     )
-    return pygments.highlight(code_str, lexer(), formatter)
+    highlighted_string = pygments.highlight(code_str, lexer(), formatter)
+
+    return highlighted_string

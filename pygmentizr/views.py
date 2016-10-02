@@ -4,7 +4,7 @@ from flask import render_template
 from pygments.formatters import HtmlFormatter
 
 from pygmentizr import app, forms
-from pygmentizr.renderer import RenderOptions, render_code
+from pygmentizr.renderer import render_code
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -13,9 +13,6 @@ def index():
 
     if form.validate_on_submit():
 
-        options = RenderOptions(
-            inline=form.inline.data
-        )
         try:
             lexer = app.config['SELECTED_LEXERS'][form.language.data]
         except KeyError:
@@ -24,7 +21,7 @@ def index():
         html_output = render_code(
             code_str=form.code.data,
             lexer=lexer,
-            options=options,
+            style=form.style.data,
         )
 
         # Get the CSS used by this style to include on the page

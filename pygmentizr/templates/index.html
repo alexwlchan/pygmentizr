@@ -9,7 +9,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link href="http://silviomoreto.github.io/bootstrap-select/bootstrap-select.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -46,17 +46,14 @@
           {{ form.hidden_tag() }}
           <p>{{ form.code(rows="6", placeholder="Enter your code here", class="form-control") }}</p>
           <div class="row">
-            <div class="col-md-3 col-xs-6"><p>{{ form.language(class="selectpicker") }}</p></div>
-            <div class="col-md-3 col-xs-6" style="padding: 5px; padding-left: 20px;"><p>
-              <span style="margin-top: 5px;">{{ form.inline() }} Apply inline styles</span>
-              <button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="bottom"
-                      style="margin-left: 5px; margin-bottom: 2px; padding: 2px 7px"
-                      data-content="If you check this option, then Pygmentizr will use inline CSS styles rather than CSS classes. This is useful when you can't use external stylesheets (e.g. in an email).">
-                ?
-              </button>
-              </p></div>
-            <div class="col-md-6 col-xs-12"><p>
-              <button type="submit" class="btn btn-primary pull-right">Apply Pygments</button>
+            <div class="col-md-3 col-sm-4 col-xs-12" style="padding-right: 20px;">
+              <p>{{ form.language(class="selectpicker") }}</p>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-12" style="padding-right: 20px;">
+              <p>{{ form.style(class="selectpicker") }}</p>
+            </div>
+            <div class="col-md-3 col-xs-12" style="float: right;"><p>
+              <button type="submit" class="btn btn-primary pull-right">Pygmentize!</button>
               <button type="reset" class="btn btn-danger pull-right"><a href="/">Reset</a></button>
             </p></div>
           </div>
