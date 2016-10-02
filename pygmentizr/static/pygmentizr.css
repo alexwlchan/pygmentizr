@@ -9,6 +9,10 @@ textarea {
   margin-top: 5px;
 }
 
+.container {
+  max-width: 900px;
+}
+
 /*
 Without this style, the "Reset" and "Apply Pygments" buttons were touching.
 There's probably a way to do this with button groups, but I couldn't work it
