@@ -9,10 +9,17 @@ SECRET_KEY = 'Pygments is a generic syntax highlighter'
 from pygments.lexers import *
 
 SELECTED_LEXERS = OrderedDict([
-    ('Python',           PythonLexer),
-    ('Python console',   PythonConsoleLexer),
-    ('CoffeeScript',     CoffeeScriptLexer),
-    ('CSS',              CssLexer),
+    ('Python',          PythonLexer),
+    ('Python console',  PythonConsoleLexer),
+    ('C',               CLexer),
+    ('C++',             CppLexer),
+    ('Bash/Ksh',        BashLexer),
+    ('Bash console',    BashSessionLexer),
+    ('Go',              GoLexer),
+    ('Rust',            RustLexer),
+    ('JavaScript',      JavascriptLexer),
+    ('JSON',            JsonLexer),
+    ('XML',             XmlLexer),
 ])
 
 # Select the style used by Pygments
