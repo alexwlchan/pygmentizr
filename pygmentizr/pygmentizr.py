@@ -1,3 +1,7 @@
+# -*- encoding: utf-8 -*-
+
+from pygmentizr import app
+
 from flask import Flask, render_template
 from flask.ext.wtf import Form
 from wtforms import SelectField, TextAreaField, BooleanField
@@ -26,14 +30,6 @@ SELECTED_LEXERS = [
 
 # Select the style used by Pygments
 PYGMENTS_STYLE = 'default'
-
-#------------------------------------------------------------------------------
-# Set up the Flask app
-#------------------------------------------------------------------------------
-app = Flask(__name__, template_folder='')
-
-app.config['WTF_CSRF_ENABLED'] = True
-app.config['SECRET_KEY'] = 'how-not-to-be-seen'
 
 #------------------------------------------------------------------------------
 # Utility functions for rendering code
@@ -84,6 +80,3 @@ def index():
 
     return render_template("index.html",
                            form=form)
-
-if __name__ == '__main__':
-    app.run()

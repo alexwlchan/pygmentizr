@@ -4,6 +4,7 @@
 #
 #    pip-compile --output-file requirements.txt requirements.in
 #
+docopt==0.6.2
 Flask-WTF==0.11
 Flask==0.10.1             # via flask-wtf
 itsdangerous==0.24        # via flask
