@@ -21,16 +21,6 @@ import pygments
 from pygments.lexers import *
 from pygments.formatters import HtmlFormatter
 
-SELECTED_LEXERS = [
-    ('PythonLexer', 'Python'),
-    ('CoffeeScriptLexer', 'CoffeeScript'),
-    ('CssLexer', 'CSS'),
-    ('PythonConsoleLexer', 'Python console')
-]
-
-# Select the style used by Pygments
-PYGMENTS_STYLE = 'default'
-
 #------------------------------------------------------------------------------
 # Utility functions for rendering code
 #------------------------------------------------------------------------------
@@ -49,34 +39,8 @@ def render_code(code, lexer_name, inline=False):
     return pygments.highlight(code,
                               lexer(),
                               HtmlFormatter(noclasses=inline,
-                                            style=PYGMENTS_STYLE))
+                                            style=app.config['PYGMENTS_STYLE']))
 
 #------------------------------------------------------------------------------
 # Form for handling code snippets
 #------------------------------------------------------------------------------
-class SnippetForm(Form):
-    language = SelectField('language',
-                           validators=[DataRequired()],
-                           choices=SELECTED_LEXERS)
-    code = TextAreaField('code_snippet', validators=[DataRequired()])
-    inline = BooleanField()
-
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    form = SnippetForm()
-
-    if form.validate_on_submit():
-        html_output = render_code(form.code.data,
-                                  form.language.data,
-                                  form.inline.data)
-
-        # Get the CSS used by this style to include on the page
-        css = HtmlFormatter(style=PYGMENTS_STYLE).get_style_defs()
-
-        return render_template("index.html",
-                               form=form,
-                               html_output=html_output,
-                               css=css)
-
-    return render_template("index.html",
-                           form=form)
