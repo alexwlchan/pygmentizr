@@ -60,14 +60,14 @@
         </form>
       </div>
 
-      {% if html_output %}
+      {% if html_code %}
       <hr>
       <p style="margin-bottom: 15px;">This is your HTML:</p>
       <textarea rows="6" class="form-control">
-{{ html_output }}
+{{ html_code }}
       </textarea>
       <p style="margin-top: 15px; margin-bottom: 15px;">and here's a preview:</p>
-      {{ html_output | safe }}
+      {{ html_to_display | safe }}
       {% endif %}
 
       <footer>
