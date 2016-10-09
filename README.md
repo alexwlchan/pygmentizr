@@ -4,6 +4,8 @@ Pygmentizr is a web app that takes code, and returns HTML with syntax colouring,
 
 For motivation, see the [accompanying blog post][2].
 
+You can try a [live demo](https://alexwlchan.net/experiments/pygmentizr/) of the app.
+
 ## Installation
 
 Clone this repository, create a virtualenv, then install the requirements with pip:
