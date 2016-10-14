@@ -20,6 +20,7 @@ SELECTED_LEXERS = OrderedDict([
     ('JavaScript',      JavascriptLexer),
     ('JSON',            JsonLexer),
     ('XML',             XmlLexer),
+    ('Diff',            DiffLexer),
 ])
 
 # Select the style used by Pygments
