@@ -11,6 +11,7 @@ from pygments.lexers import *
 SELECTED_LEXERS = OrderedDict([
     ('Python',          PythonLexer),
     ('Python console',  PythonConsoleLexer),
+    ('Plain text',      TextLexer),
     ('C',               CLexer),
     ('C++',             CppLexer),
     ('Bash/Ksh',        BashLexer),
