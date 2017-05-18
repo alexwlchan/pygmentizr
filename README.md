@@ -50,7 +50,7 @@ This starts the Flask instance which runs Pygmentizr. Point a web browser at <ht
 Alternatively, you can use the Docker implementation:
 
 ```console
-$ docker build -t alexwlchan/pygmentizr
+$ docker build -t alexwlchan/pygmentizr .
 $ docker run -p 5000:80 alexwlchan/pygmentizr
 ```
 
