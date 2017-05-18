@@ -1,9 +1,12 @@
 # -*- encoding, utf-8 -*-
 
 from collections import OrderedDict
+import os
 
 WTF_CSRF_ENABLED = True
-SECRET_KEY = 'Pygments is a generic syntax highlighter'
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY', 'Pygments is a generic syntax highlighter'
+)
 
 # Select the lexers to be exposed in the interface
 from pygments.lexers import *

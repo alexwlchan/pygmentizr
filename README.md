@@ -47,6 +47,13 @@ $ python manage.py run
 
 This starts the Flask instance which runs Pygmentizr. Point a web browser at <http://localhost:5000> to use the app.
 
+Alternatively, you can use the Docker implementation:
+
+```console
+$ docker build -t alexwlchan/pygmentizr
+$ docker run -p 5000:80 alexwlchan/pygmentizr
+```
+
 ## Acknowledgements
 
 The favicon is the [fa-code icon][3] from the [Font Awesome][4] toolkit.
